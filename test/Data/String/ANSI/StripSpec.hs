@@ -7,7 +7,7 @@ import           System.Console.ANSI
 import           Data.String.ANSI.Strip
 
 withColor :: Color -> String -> String
-withColor color string =  set <> string <> reset
+withColor color string =  set ++ string ++ reset
   where
     set = setSGRCode [SetColor Foreground Dull color]
     reset = setSGRCode []
@@ -16,7 +16,10 @@ spec :: Spec
 spec = do
   describe "stripAnsi" $ do
     it "removes ANSI color sequences" $ do
-      stripAnsi ("some " <> withColor Green "colorized" <> " text") `shouldBe` "some colorized text"
+      stripAnsi ("some " ++ withColor Green "colorized" ++ " text") `shouldBe` "some colorized text"
 
     it "removes DEC private mode sequences" $ do
-      stripAnsi (hideCursorCode <> "some text" <> showCursorCode) `shouldBe` "some text"
+      stripAnsi (hideCursorCode ++ "some text" ++ showCursorCode) `shouldBe` "some text"
+
+    it "removes OSC sequences" $ do
+      stripAnsi (hyperlinkWithParamsCode [("foo", "23"), ("bar", "42")] "https://github.com/sol/ghc-hie-files" "ghc-hie-files") `shouldBe` "ghc-hie-files"
