@@ -1,6 +1,13 @@
 spec-version: 0.36.0
+version: 0.0.1
 name: strip-ansi
 synopsis: Strip ANSI escape codes from strings
+category: Text
+description:
+  A lightweight alternative to
+  [`strip-ansi-escape`](https://hackage.haskell.org/package/strip-ansi-escape).
+
+github: sol/strip-ansi
 
 copyright: (c) 2025 Simon Hengel
 author: Simon Hengel <sol@typeful.net>

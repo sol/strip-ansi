@@ -5,14 +5,22 @@ cabal-version: 1.12
 -- see: https://github.com/sol/hpack
 
 name:           strip-ansi
-version:        0.0.0
+version:        0.0.1
 synopsis:       Strip ANSI escape codes from strings
+description:    A lightweight alternative to [`strip-ansi-escape`](https://hackage.haskell.org/package/strip-ansi-escape).
+category:       Text
+homepage:       https://github.com/sol/strip-ansi#readme
+bug-reports:    https://github.com/sol/strip-ansi/issues
 author:         Simon Hengel <sol@typeful.net>
 maintainer:     Simon Hengel <sol@typeful.net>
 copyright:      (c) 2025 Simon Hengel
 license:        MIT
 license-file:   LICENSE
 build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/sol/strip-ansi
 
 library
   exposed-modules:
